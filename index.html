@@ -498,7 +498,143 @@ cursor:pointer;
 opacity:0.9;
 }
 
+/* =========================
+   ABOUT SECTION RESPONSIVE
+========================= */
 
+/* Tablet */
+@media (max-width: 992px){
+
+.about-content h1{
+font-size:45px;
+}
+
+.about-content{
+max-width:600px;
+padding:30px;
+}
+
+.about-content p{
+font-size:15px;
+}
+
+}
+
+/* Mobile */
+@media (max-width: 600px){
+
+.about{
+height:auto;
+padding:80px 20px;
+}
+
+.about-content h1{
+font-size:36px;
+}
+
+.about-content h2{
+font-size:20px;
+}
+
+.about-content p{
+font-size:14px;
+}
+
+}
+
+
+/* =========================
+   CONTACT SECTION RESPONSIVE
+========================= */
+
+/* Tablet */
+@media (max-width: 992px){
+
+.contact-section{
+padding:60px 40px;
+}
+
+.contact-container{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.contact-info{
+grid-template-columns:1fr 1fr;
+}
+
+.map{
+grid-column:span 2;
+}
+
+.contact-hero h1{
+font-size:40px;
+}
+
+}
+
+
+/* Mobile */
+@media (max-width: 600px){
+
+.contact-hero{
+height:auto;
+padding:60px 20px;
+}
+
+.contact-hero h1{
+font-size:32px;
+}
+
+.contact-hero p{
+font-size:14px;
+}
+
+.contact-section{
+padding:50px 20px;
+}
+
+.contact-info{
+grid-template-columns:1fr;
+}
+
+.contact-card{
+padding:20px;
+}
+
+.contact-form h2{
+font-size:26px;
+}
+
+.contact-form input,
+.contact-form textarea{
+font-size:14px;
+}
+
+.contact-form button{
+font-size:14px;
+padding:12px;
+}
+
+.map iframe{
+height:180px;
+}
+/* MOBILE NAVIGATION LAYOUT */
+.nav{
+flex-direction:column;
+align-items:center;
+gap:8px;
+}
+
+.logo{
+justify-content:center;
+}
+
+.nav-links{
+justify-content:center;
+gap:20px;
+}
+}
 </style>
 </head>
 
@@ -723,17 +859,17 @@ Have questions or need help? Feel free to reach out to us and we will gladly ass
 
 <div class="contact-card">
 <h3>Phone</h3>
-<p>082-123-4567</p>
+<p>09653016907</p>
 </div>
 
 <div class="contact-card">
 <h3>Whatsapp</h3>
-<p>082-123-4567</p>
+<p>09653016907</p>
 </div>
 
 <div class="contact-card">
 <h3>Email</h3>
-<p>support@yoursite.com</p>
+<p>ictechguide@gmail.com</p>
 </div>
 
 
@@ -802,3 +938,4 @@ document.getElementById("appDropdown").addEventListener("change", function() {
 </script>
 
 </html>
+
