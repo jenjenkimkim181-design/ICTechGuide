@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blooket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+section {
+  padding: 40px;
+  text-align: center;
+  background: transparent;
+}
+   body {
+  background: url('candidate3.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.header{
+width:100%;
+background:white;
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav{
+display:flex;
+align-items:center;
+max-width:1200px;
+margin:auto;
+padding:15px 40px;
+gap:40px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+.nav-actions{
+display:flex;
+gap:10px;
+}
+
+.nav-actions{
+margin-left:auto;
+display:flex;
+align-items:center;
+}
+
+.nav-actions .search-bar{
+position:relative;
+top:auto;
+left:auto;
+transform:none;
+width:260px;
+padding:6px 14px;
+border-radius:30px;
+box-shadow:none;
+border:1px solid #ddd;
+}
+
+.nav-actions select{
+font-size:14px;
+padding:6px 10px;
+}
+
+.nav-actions .search-bar{
+position:relative;
+background:white;
+width:260px;
+padding:4px 14px;
+border-radius:30px;
+border:1px solid #ddd;
+display:flex;
+align-items:center;
+box-shadow:none;
+}
+
+/* SEARCH BAR */
+
+.search-bar{
+position:absolute;
+top:100px;
+left:50%;
+transform:translateX(-50%);
+background:white;
+padding:12px 20px;
+border-radius:40px;
+width:460px;
+display:flex;
+align-items:center;
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
+border:1px solid rgba(0,0,0,0.05);
+}
+
+/* SELECT DROPDOWN */
+
+.search-bar select{
+border:none;
+outline:none;
+width:100%;
+font-size:15px;
+background:white;
+cursor:pointer;
+padding:10px 14px;
+border-radius:40px;
+color:#333;
+font-weight:500;
+appearance:none;
+background-repeat:no-repeat;
+background-position:right 10px center;
+background-size:18px;
+}
+
+/* subtle hover */
+
+.search-bar select:hover{
+background-color:#f7f7f7;
+}
+
+/* focus effect */
+
+.search-bar select:focus{
+background-color:#f9f9f9;
+}
+
+
+.logo{
+display:flex;
+align-items:center;
+font-weight:600;
+font-size:20px;
+gap:10px;
+}
+
+.btn-outline{
+padding:8px 18px;
+border:1px solid #ccc;
+border-radius:8px;
+background:white;
+cursor:pointer;
+}
+
+.btn-dark{
+padding:8px 18px;
+border:none;
+border-radius:8px;
+background:#2f3e2f;
+color:white;
+cursor:pointer;
+}
+
+.logo-text{
+font-style: italic;
+font-weight: 600;
+font-size: 22px;
+letter-spacing: 1.5px;
+color: #2f3e2f;
+transition: 0.3s;
+}
+
+
+.hero {
+  height: 100vh;
+  position: relative;
+  padding: 40px;
+  color: #ffffff;
+}
+
+    .hero h4 {
+      font-size: 60px;
+      line-height: 0.9;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .video-container {
+  flex: 1;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+    .video-container iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  display: block;
+}
+    .visit-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    .visit-btn:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    .video-controls {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .video-controls button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      background: #2f3e2f;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .video-controls button:hover {
+      background: #4f6b4f;
+    }
+
+    /* Hero title row: logo + h4 aligned horizontally */
+    .title-row {
+      display: flex;
+      align-items: center;
+      /* vertical alignment */
+      justify-content: center;
+      /* horizontal centering on page */
+      gap: 12px;
+      /* space between logo and text */
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      /* vertical alignment */
+      justify-content: center;
+      /* center horizontally */
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+	.hero p {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 12px;
+      /* makes the sides slightly rounded */
+    }
+
+    .title-row h4 {
+      font-size: 60px;
+      line-height: 1;
+      /* remove extra vertical spacing */
+      margin: 0;
+      /* remove default margin */
+    }
+
+    /* MOBILE NAVIGATION LAYOUT */
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .logo {
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+	
+.content-section {
+  padding: 60px 40px;
+}
+
+.content-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Alternate layout */
+.content-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Video */
+.video-container {
+  flex: 1;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+}
+
+/* Text */
+.text-content {
+  flex: 1;
+  max-width: 500px;   /* controls how wide the text can go */
+  margin: 0 auto;     /* centers it horizontally */
+  text-align: center; /* centers the text */
+}
+
+.text-content h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.text-content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .content-row {
+    flex-direction: column;
+  }
+
+  .content-row.reverse {
+    flex-direction: column;
+  }
+
+  .text-content {
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .nav-actions .search-bar {
+    width: 90%;
+    max-width: 320px;
+  }
+
+}
+@media (max-width: 600px) {
+  .hero {
+    margin-top: 100px; /* pushes content below header */
+  }
+}
+.logomo {
+  width: 200px;        /* adjust size */
+  height: 80px;
+  object-fit: contain;
+}
+  </style>
+</head>
+
+<body>
+
+
+  <header class="header">
+<nav class="nav">
+
+<div class="logo">
+<img src="logomo.jpg" alt="ICTechGuide Logo" class="logomo">
+</div>
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+</ul>
+<div class="nav-actions">
+
+<div class="search-bar">
+<select id="appDropdown">
+<option selected disabled>Choose an Interactive Tool</option>
+
+<option value="mentimeter.html">Mentimeter — Live polls & quizzes</option>
+<option value="wooclap.html">Wooclap — Interactive classroom engagement</option>
+<option value="slido.html">Slido — Q&A, polls & surveys</option>
+<option value="genially.html">Genially — Interactive presentations</option>
+<option value="blooket.html">Blooket — Quizzes and review</option>
+
+</select>
+</div>
+
+</div>
+</nav>
+</header>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+
+ <section class="hero">
+  <div class="title-row">
+  <img src="blooketlogo.jpg" alt="blooket Logo" class="hero-logo">
+  <h4>Blooket</h4>
+</div>
+
+  <p>Blooket is an interactive online learning platform that turns quizzes and reviews into fun classroom games. It allows teachers to create or choose question sets and present them in different game modes where students can answer questions while competing or collaborating with classmates.
+  </p>
+<br>
+	 <p>
+<strong>Top Features:</strong>
+ Game-based quizzes (students play while learning), Different game modes (battle, racing, strategy), Pre-made question sets + create your own, Rewards, points, and competition, Homework mode + live classroom mode
+</p>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  <section class="content-section">
+  <div class="content-row">
+     <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174994728?h=7896c1e581" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+ </div>
+
+    <div class="text-content">
+     <h1>Introduction</h1>
+      <p>Blooket is less about taking a quiz and it's more about playing a game where knowledge is powered-up with different. It’s an excellent tool for reinforcing vocabulary, math facts, or historical dates in a way that feels like a reward rather than a chore.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row reverse">
+    
+    <div class="video-container">
+    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1174037808?h=2ce8245c92" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+  </div>
+
+    <div class="text-content">
+       <h1><br>Checking your stats</h1>
+      <p>This video explores the current stats of your account based on how many games you played.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row">
+     <div class="video-container">
+    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1174038208?h=20a93de5bb" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+  </div>
+
+    <div class="text-content">
+      <h1><br>Picking Blooks</h1>
+      <p>This video explores about various avaters (a.k.a Blook) in Blooket.</p>
+    </div>
+
+  </div>
+</section>
+  
+  <section class="content-section">
+  <div class="content-row reverse">
+    
+    <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174038650?h=48554850ea" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+  </div>
+
+    <div class="text-content">
+      <h1><br>Exploring market</h1>
+      <p>This video explores about the things you can buy in Blooket, such as blooks, banners, and accessories.</p>
+    </div>
+
+  </div>
+</section>
+ 
+ <section class="content-section">
+  <div class="content-row">
+      <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174038722?h=5d1625ebfc" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+  </div>
+
+    <div class="text-content">
+      <h1><br>Discover pre-made games</h1>
+      <p>This video explores various pre=made games you can play or host with. Some of the featured games are verified by the teachers.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row reverse">
+    
+    <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174039115?h=3fb7fac2e1" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+  </div>
+
+    <div class="text-content">
+      <h1><br>Exploring set creation</h1>
+      <p>This video explores the set or event creation.</p>
+    </div>
+
+  </div>
+</section>
+
+ <section class="content-section">
+  <div class="content-row">
+       <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174039155?h=c7be17a8a1" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+  </div>
+
+    <div class="text-content">
+       <h1><br>Creating a set</h1>
+      <p>This video shows you how to create a set, by adding the title or cover image.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row reverse">
+    
+    <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174039238?h=bb1fff3ddf" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+  </div>
+
+    <div class="text-content">
+      <h1><br>Exploring question editor</h1>
+      <p>This video explores about adding and editing questions for a set</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row">
+        <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174039400?h=cf032d2029" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+  </div>
+
+    <div class="text-content">
+        <h1><br>Hosting the set</h1>
+      <p>This video explores about hosting a set. Blooket offers different game modes for a set, making every questions more engaging.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row reverse">
+    
+    <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174043041?h=3a48a8b424" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+</div>
+
+    <div class="text-content">
+      <h1><br>Checking the results</h1>
+      <p>This video shows the results obtained from the set.</p>
+    </div>
+
+  </div>
+	<a class="visit-btn" href="https://www.blooket.com/" target="_blank">Visit Blooket</a>
+</section>
+      <section class="content-section" id="feedback">
+  <h1>Feedback & Reviews</h1>
+  <p>See what our users say about Mentimeter and how it enhances engagement in presentations.</p>
+	<div class="content-row" style="justify-content:center; flex-wrap:wrap; gap:20px;">
+<div class="video-container" style="max-width:1000px;">
+      <img src="brating.png" alt="User Review 1" style="width:100%; border-radius:12px;">
+      <p style="margin-top:10px; font-size:14px; text-align:center;"></p>
+    </div>
+	</div>
+  <div class="content-row" style="justify-content:center; flex-wrap:wrap; gap:20px;">
+<div class="video-container" style="max-width:1000px;">
+      <img src="breview.png" alt="User Review 1" style="width:100%; border-radius:12px;">
+      <p style="margin-top:10px; font-size:14px; text-align:center;"></p>
+    </div>
+	</div>
+  <div class="content-row" style="justify-content:center; flex-wrap:wrap; gap:20px;">
+<div class="video-container" style="max-width:1000px;">
+      <img src="breview1.png" alt="User Review 1" style="width:100%; border-radius:12px;">
+      <p style="margin-top:10px; font-size:14px; text-align:center;"></p>
+    </div>
+	</div>
+  
+</section>
+
+ 
+</body>
+<script>
+  document.getElementById("appDropdown").addEventListener("change", function() {
+    const selectedPage = this.value;
+    if (selectedPage) {
+      window.location.href = selectedPage;
+    }
+  });
+</script>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slido</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+section {
+  padding: 40px;
+  text-align: center;
+  background: transparent;
+}
+   body {
+  background: url('candidate3.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.header{
+width:100%;
+background:white;
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav{
+display:flex;
+align-items:center;
+max-width:1200px;
+margin:auto;
+padding:15px 40px;
+gap:40px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+.nav-actions{
+display:flex;
+gap:10px;
+}
+
+.nav-actions{
+margin-left:auto;
+display:flex;
+align-items:center;
+}
+
+.nav-actions .search-bar{
+position:relative;
+top:auto;
+left:auto;
+transform:none;
+width:260px;
+padding:6px 14px;
+border-radius:30px;
+box-shadow:none;
+border:1px solid #ddd;
+}
+
+.nav-actions select{
+font-size:14px;
+padding:6px 10px;
+}
+
+.nav-actions .search-bar{
+position:relative;
+background:white;
+width:260px;
+padding:4px 14px;
+border-radius:30px;
+border:1px solid #ddd;
+display:flex;
+align-items:center;
+box-shadow:none;
+}
+
+/* SEARCH BAR */
+
+.search-bar{
+position:absolute;
+top:100px;
+left:50%;
+transform:translateX(-50%);
+background:white;
+padding:12px 20px;
+border-radius:40px;
+width:460px;
+display:flex;
+align-items:center;
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
+border:1px solid rgba(0,0,0,0.05);
+}
+
+/* SELECT DROPDOWN */
+
+.search-bar select{
+border:none;
+outline:none;
+width:100%;
+font-size:15px;
+background:white;
+cursor:pointer;
+padding:10px 14px;
+border-radius:40px;
+color:#333;
+font-weight:500;
+appearance:none;
+background-repeat:no-repeat;
+background-position:right 10px center;
+background-size:18px;
+}
+
+/* subtle hover */
+
+.search-bar select:hover{
+background-color:#f7f7f7;
+}
+
+/* focus effect */
+
+.search-bar select:focus{
+background-color:#f9f9f9;
+}
+
+
+.logo{
+display:flex;
+align-items:center;
+font-weight:600;
+font-size:20px;
+gap:10px;
+}
+
+.btn-outline{
+padding:8px 18px;
+border:1px solid #ccc;
+border-radius:8px;
+background:white;
+cursor:pointer;
+}
+
+.btn-dark{
+padding:8px 18px;
+border:none;
+border-radius:8px;
+background:#2f3e2f;
+color:white;
+cursor:pointer;
+}
+
+.logo-text{
+font-style: italic;
+font-weight: 600;
+font-size: 22px;
+letter-spacing: 1.5px;
+color: #2f3e2f;
+transition: 0.3s;
+}
+
+
+.hero {
+  height: 100vh;
+  position: relative;
+  padding: 40px;
+  color: #ffffff;
+}
+
+    .hero h4 {
+      font-size: 60px;
+      line-height: 0.9;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .video-container {
+  flex: 1;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+    .video-container iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  display: block;
+}
+    .visit-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    .visit-btn:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    .video-controls {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .video-controls button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      background: #2f3e2f;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .video-controls button:hover {
+      background: #4f6b4f;
+    }
+
+    /* Hero title row: logo + h4 aligned horizontally */
+    .title-row {
+      display: flex;
+      align-items: center;
+      /* vertical alignment */
+      justify-content: center;
+      /* horizontal centering on page */
+      gap: 12px;
+      /* space between logo and text */
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      /* vertical alignment */
+      justify-content: center;
+      /* center horizontally */
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+	.hero p {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 12px;
+      /* makes the sides slightly rounded */
+    }
+
+    .title-row h4 {
+      font-size: 60px;
+      line-height: 1;
+      /* remove extra vertical spacing */
+      margin: 0;
+      /* remove default margin */
+    }
+
+    /* MOBILE NAVIGATION LAYOUT */
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .logo {
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+	
+.content-section {
+  padding: 60px 40px;
+}
+
+.content-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Alternate layout */
+.content-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Video */
+.video-container {
+  flex: 1;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+}
+
+/* Text */
+.text-content {
+  flex: 1;
+  max-width: 500px;   /* controls how wide the text can go */
+  margin: 0 auto;     /* centers it horizontally */
+  text-align: center; /* centers the text */
+}
+
+.text-content h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.text-content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .content-row {
+    flex-direction: column;
+  }
+
+  .content-row.reverse {
+    flex-direction: column;
+  }
+
+  .text-content {
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .nav-actions .search-bar {
+    width: 90%;
+    max-width: 320px;
+  }
+
+}
+@media (max-width: 600px) {
+  .hero {
+    margin-top: 100px; /* pushes content below header */
+  }
+}
+.logomo {
+  width: 200px;        /* adjust size */
+  height: 80px;
+  object-fit: contain;
+}
+  </style>
+</head>
+
+<body>
+
+
+  <header class="header">
+<nav class="nav">
+
+<div class="logo">
+<img src="logomo.jpg" alt="ICTechGuide Logo" class="logomo">
+</div>
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+</ul>
+<div class="nav-actions">
+
+<div class="search-bar">
+<select id="appDropdown">
+<option selected disabled>Choose an Interactive Tool</option>
+
+<option value="mentimeter.html">Mentimeter — Live polls & quizzes</option>
+<option value="wooclap.html">Wooclap — Interactive classroom engagement</option>
+<option value="slido.html">Slido — Q&A, polls & surveys</option>
+<option value="genially.html">Genially — Interactive presentations</option>
+<option value="blooket.html">Blooket — Quizzes and review</option>
+
+</select>
+</div>
+
+</div>
+</nav>
+</header>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+
+ <section class="hero">
+  <div class="title-row">
+  <img src="slidologo.jpg" alt="Slido Logo" class="hero-logo">
+  <h4>Slido</h4>
+</div>
+     <p>Slido is an interactive presentation tool that allows presenters to engage their audience through live polls, question-and-answer sessions, quizzes, and surveys. It helps transform traditional presentations into interactive experiences where participants can actively share their opinions and ask questions in real time.
+  </p>
+
+	<br>
+	 <p>
+<strong>Top Features:</strong>
+Live Q&A sessions (audience can upvote questions), Polls, surveys, and quizzes, Strong integrations (PowerPoint, Zoom, Google Slides, Teams), “Rooms” feature for group discussions, Participant preview mode</p>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  <section class="content-section">
+  <div class="content-row">
+     <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1175359688?h=248b942897" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+ </div>
+
+    <div class="text-content">
+     <h1>Introduction</h1>
+      <p>Slido is one of the most popular industry-standard tools for interaction. It is a cloud-based Q&A and polling platform designed to bridge the gap between a speaker and their audience, whether in a physical classroom or in a virtual meeting.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row reverse">
+    
+    <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174046180?h=c35c185786" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+	 </div>
+
+    <div class="text-content">
+      <h1><br>Creating an event</h1>
+      <p>This video explores the creation of the event in slido, like adding the name.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row">
+     <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174046285?h=9ec3a2e784" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+	 </div>
+
+    <div class="text-content">
+      <h1><br>Adding a question</h1>
+      <p>This video explores the different question types in Slido and it's question editor.</p>
+    </div>
+
+  </div>
+</section>
+  
+  <section class="content-section">
+  <div class="content-row reverse">
+    
+    <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174046547?h=a6e9769c32" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+	 </div>
+
+    <div class="text-content">
+      <h1><br>Hosting the event</h1>
+      <p>This video explores the participant's and host's view when answering the questions.</p>
+    </div>
+
+  </div>
+</section>
+ 
+ <section class="content-section">
+  <div class="content-row">
+      <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174047064?h=c4b354472f" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+	 </div>
+
+    <div class="text-content">
+      <h1><br>Sharing an event</h1>
+      <p>This video shows how to share or invite someone on your event to your collaborators</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-row reverse">
+    
+    <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174047064?h=c4b354472f" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+	 </div>
+
+    <div class="text-content">
+      <h1><br>Exploring tutorials of Slido</h1>
+      <p>This video explores the tutorials available in Slido</p>
+    </div>
+
+  </div>
+</section>
+
+ <section class="content-section">
+  <div class="content-row">
+       <div class="video-container">
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1174047346?h=abe70b3aa7" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+	 </div>
+
+    <div class="text-content">
+       <h1><br>Explorng integrations of Slido</h1>
+      <p>This video explores the integration of Slido, you may link your event on the following programs.</p>
+    </div>
+
+  </div>
+	 <a class="visit-btn" href="https://www.slido.com/" target="_blank">Visit Mentimeter</a>
+</section>
+   <section class="content-section" id="feedback">
+  <h1>Feedback & Reviews</h1>
+  <p>See what our users say about Mentimeter and how it enhances engagement in presentations.</p>
+	<div class="content-row" style="justify-content:center; flex-wrap:wrap; gap:20px;">
+<div class="video-container" style="max-width:1000px;">
+      <img src="srating.png" alt="User Review 1" style="width:100%; border-radius:12px;">
+      <p style="margin-top:10px; font-size:14px; text-align:center;"></p>
+    </div>
+	</div>
+  <div class="content-row" style="justify-content:center; flex-wrap:wrap; gap:20px;">
+<div class="video-container" style="max-width:1000px;">
+      <img src="sreview.png" alt="User Review 1" style="width:100%; border-radius:12px;">
+      <p style="margin-top:10px; font-size:14px; text-align:center;"></p>
+    </div>
+	</div>
+  
+</section>  
+  
+
+ 
+</body>
+<script>
+  document.getElementById("appDropdown").addEventListener("change", function() {
+    const selectedPage = this.value;
+    if (selectedPage) {
+      window.location.href = selectedPage;
+    }
+  });
+</script>
+</html>
