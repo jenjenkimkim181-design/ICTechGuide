@@ -252,10 +252,10 @@ display:block;
 }
 
 /* hovered card becomes dominant */
-.card:hover{
-  transform: scale(1.25);
-  box-shadow: 0 30px 65px rgba(0,0,0,0.7);
-  z-index: 50;
+
+.card:hover {
+    transform: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* optional: pause slider so the grow is visible */
@@ -307,6 +307,24 @@ overflow:hidden;
 position:relative;
 box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
+
+
+/* Floating hover copy - smooth animation */
+.card-hover-copy {
+    position: fixed !important;
+    z-index: 99999 !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+
+    transform: scale(1) !important;
+    transform-origin: center center !important;
+
+    transition:
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.7s ease !important;
+}
+
+
 
 @keyframes slideCards{
 0%{
@@ -803,8 +821,11 @@ ICTechGuide provides online video tutorials designed to support pre-service ICT 
 </div>
 
 </section>
+
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 <script>
   document.getElementById("appDropdown").addEventListener("change", function() {
     const selectedPage = this.value;
@@ -812,6 +833,62 @@ ICTechGuide provides online video tutorials designed to support pre-service ICT 
       window.location.href = selectedPage;
     }
   });
-</script>
 
+  document.querySelectorAll(".cards .card").forEach(card => {
+    let hoverCopy = null;
+
+    card.addEventListener("mouseenter", () => {
+      document.querySelectorAll(".card-hover-copy")
+        .forEach(copy => copy.remove());
+
+      const rect = card.getBoundingClientRect();
+
+      hoverCopy = card.cloneNode(true);
+      hoverCopy.classList.add("card-hover-copy");
+
+      hoverCopy.style.left = rect.left + "px";
+      hoverCopy.style.top = rect.top + "px";
+      hoverCopy.style.width = rect.width + "px";
+      hoverCopy.style.height = rect.height + "px";
+
+      
+document.body.appendChild(hoverCopy);
+
+// Let the browser render the card at its original size first
+hoverCopy.style.setProperty("transform", "scale(1)", "important");
+hoverCopy.style.setProperty(
+  "box-shadow",
+  "0 10px 25px rgba(0,0,0,0.4)",
+  "important"
+);
+
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    if (hoverCopy) {
+      hoverCopy.style.setProperty(
+        "transform",
+        "scale(1.25)",
+        "important"
+      );
+
+      hoverCopy.style.setProperty(
+        "box-shadow",
+        "0 30px 65px rgba(0,0,0,0.7)",
+        "important"
+      );
+    }
+  });
+});
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+      if (hoverCopy) {
+        hoverCopy.remove();
+        hoverCopy = null;
+      }
+    });
+  });
+</script>
+</body>
 </html>
