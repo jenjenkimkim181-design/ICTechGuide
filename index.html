@@ -488,6 +488,370 @@ font-size:32px;
     margin-top: 100px; /* pushes content below header */
   }
 }
+
+
+
+
+
+
+/* EDUCATIONAL TOOL DESCRIPTION POPUP */
+.tool-description-popup {
+  position: fixed;
+  z-index: 100000;
+  width: max-content;
+  max-width: min(310px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+
+  padding: 13px 15px;
+  background: #ffffff;
+  color: #263238;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: left;
+  overflow-wrap: anywhere;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.18s ease;
+}
+
+.tool-description-popup.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   MOBILE EDUCATIONAL TOOLS SECTION
+===================================== */
+
+/* Hidden on desktop */
+.mobile-tools-section {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* Hide desktop carousel and its hover effects */
+  .cards {
+    display: none !important;
+  }
+
+  .tool-description-popup {
+    display: none !important;
+  }
+
+  .card-hover-copy {
+    display: none !important;
+  }
+
+  /* Show the mobile tools section */
+  .mobile-tools-section {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 65px 18px;
+    background: #f7f8f5;
+    color: #263326;
+  }
+
+  .mobile-tools-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .mobile-tools-heading {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .mobile-tools-heading span {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #71846b;
+  }
+
+  .mobile-tools-heading h2 {
+    font-size: 32px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    color: #2f3e2f;
+  }
+
+  .mobile-tools-heading p {
+    max-width: 480px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #626b60;
+  }
+
+  .mobile-tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .mobile-tool-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 16px;
+    background: #ffffff;
+    border: 1px solid #e7eae3;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.045);
+  }
+
+  .mobile-tool-card img {
+    width: 76px;
+    height: 76px;
+    flex: 0 0 76px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f5f5f2;
+  }
+
+  .mobile-tool-info {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .mobile-tool-info h3 {
+    margin: 2px 0 8px;
+    font-size: 18px;
+    color: #2f3e2f;
+  }
+
+  .mobile-tool-info p {
+    margin: 0 0 12px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #626762;
+    overflow-wrap: anywhere;
+  }
+
+  .mobile-tool-info a {
+    display: inline-block;
+    color: #506b4c;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .mobile-tool-info a:hover {
+    color: #2f3e2f;
+    text-decoration: underline;
+  }
+
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+
+  .mobile-tools-section {
+    padding: 50px 12px;
+  }
+
+  .mobile-tool-card {
+    gap: 11px;
+    padding: 15px 12px;
+  }
+
+  .mobile-tool-card img {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+  }
+
+  .mobile-tool-info h3 {
+    font-size: 16px;
+  }
+
+  .mobile-tool-info p {
+    font-size: 11px;
+  }
+
+}
+
+/* Tablet: show two columns */
+@media (min-width: 600px) and (max-width: 768px) {
+
+  .mobile-tools-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mobile-tool-card {
+    flex-direction: column;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE EDUCATIONAL TOOLS SECTION
+========================================== */
+
+/* Hidden on desktop */
+.mobile-tools {
+  display: none;
+}
+
+/* Pause carousel only while hovering */
+.cards.is-hovering .cards-track {
+  animation-play-state: paused;
+}
+
+/* Floating card must never intercept pointer events */
+.card-hover-copy {
+  position: fixed !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  transform-origin: center center !important;
+
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.7s ease !important;
+}
+
+/* ==========================================
+   PHONES AND TOUCH DEVICES
+========================================== */
+
+@media (max-width: 768px),
+       (hover: none) and (pointer: coarse) {
+
+  /* Disable hover-related floating effects */
+  .card-hover-copy,
+  .tool-description-popup {
+    display: none !important;
+  }
+
+  .cards.is-hovering .cards-track {
+    animation-play-state: running;
+  }
+
+  /* Make the mobile section visible */
+  .mobile-tools {
+    display: block;
+    padding: 60px 20px;
+    background: #f7f8f5;
+  }
+
+  .mobile-tools-container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .mobile-tools-container h2 {
+    color: #2f3e2f;
+    font-size: 30px;
+    line-height: 1.3;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .mobile-tools-subtitle {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: center;
+    margin: 0 auto 30px;
+    max-width: 500px;
+  }
+
+  .mobile-tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .mobile-tool-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .mobile-tool-card img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+  }
+
+  .mobile-tool-info {
+    padding: 22px;
+  }
+
+  .mobile-tool-info h3 {
+    color: #2f3e2f;
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  .mobile-tool-info p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+
+  .mobile-tool-info a {
+    display: inline-block;
+    background: #2f3e2f;
+    color: white;
+    text-decoration: none;
+    padding: 10px 17px;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: background 0.25s ease;
+  }
+
+  .mobile-tool-info a:hover {
+    background: #4f6b4f;
+  }
+}
+
+/* Smaller phones */
+@media (max-width: 400px) {
+
+  .mobile-tools {
+    padding: 45px 15px;
+  }
+
+  .mobile-tools-container h2 {
+    font-size: 25px;
+  }
+
+  .mobile-tool-card img {
+    height: 160px;
+  }
+
+  .mobile-tool-info {
+    padding: 18px;
+  }
+}
+
 </style>
 </head>
 
@@ -651,73 +1015,533 @@ ICTechGuide provides online video tutorials designed to support pre-service ICT 
 
 </section>
 
+<!-- MOBILE EDUCATIONAL TOOLS SECTION -->
+<section class="mobile-tools-section" id="mobile-tools">
+
+  <div class="mobile-tools-container">
+
+    <div class="mobile-tools-heading">
+      <span>EXPLORE OUR TOOLS</span>
+      <h2>Educational Tools</h2>
+      <p>
+        Discover interactive platforms that help make teaching
+        and learning more engaging, creative, and collaborative.
+      </p>
+    </div>
+
+    <div class="mobile-tools-grid">
+
+      <!-- MENTIMETER -->
+      <article class="mobile-tool-card">
+        <img src="mentimeter.jpg" alt="Mentimeter logo">
+
+        <div class="mobile-tool-info">
+          <h3>Mentimeter</h3>
+          <p>
+            Engage students with real-time polls, quizzes, and
+            word clouds. Students can submit questions and respond
+            using a code, link, or QR code, while teachers view
+            instant results through charts and graphs.
+          </p>
+          <a href="mentimeter.html">Explore Mentimeter →</a>
+        </div>
+      </article>
+
+      <!-- WOOCLAP -->
+      <article class="mobile-tool-card">
+        <img src="wooclap.jpg" alt="Wooclap logo">
+
+        <div class="mobile-tool-info">
+          <h3>Wooclap</h3>
+          <p>
+            Make lessons interactive with matching activities,
+            fill-in-the-blanks, image labeling, brainstorming,
+            and collaborative message walls. It also supports
+            leaderboards, attendance tracking, and LMS integration.
+          </p>
+          <a href="wooclap.html">Explore Wooclap →</a>
+        </div>
+      </article>
+
+      <!-- SLIDO -->
+      <article class="mobile-tool-card">
+        <img src="slido.jpg" alt="Slido logo">
+
+        <div class="mobile-tool-info">
+          <h3>Slido</h3>
+          <p>
+            Encourage participation through live Q&A sessions,
+            polls, surveys, and quizzes. Students can upvote
+            questions and join discussions, with integrations
+            for PowerPoint, Zoom, Google Slides, and Teams.
+          </p>
+          <a href="slido.html">Explore Slido →</a>
+        </div>
+      </article>
+
+      <!-- GENIALLY -->
+      <article class="mobile-tool-card">
+        <img src="genially.jpg" alt="Genially logo">
+
+        <div class="mobile-tool-info">
+          <h3>Genially</h3>
+          <p>
+            Create interactive presentations, infographics,
+            and educational games using animations, clickable
+            elements, quizzes, escape rooms, and storytelling.
+            Use templates to build and share engaging lessons.
+          </p>
+          <a href="genially.html">Explore Genially →</a>
+        </div>
+      </article>
+
+      <!-- BLOOKET -->
+      <article class="mobile-tool-card">
+        <img src="blooket.jpg" alt="Blooket logo">
+
+        <div class="mobile-tool-info">
+          <h3>Blooket</h3>
+          <p>
+            Turn classroom reviews into exciting game-based
+            learning. Choose from different game modes, use
+            existing question sets or create your own, and
+            motivate students through points and competition.
+            Use live classroom games or assign homework.
+          </p>
+          <a href="blooket.html">Explore Blooket →</a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+
+
+
 <script>
-  document.getElementById("appDropdown").addEventListener("change", function() {
-    const selectedPage = this.value;
-    if (selectedPage) {
-      window.location.href = selectedPage;
-    }
-  });
+document.addEventListener("DOMContentLoaded", function () {
 
-  document.querySelectorAll(".cards .card").forEach(card => {
-    let hoverCopy = null;
+  // ==========================================
+  // 1. DROPDOWN NAVIGATION
+  // ==========================================
 
-    card.addEventListener("mouseenter", () => {
-      document.querySelectorAll(".card-hover-copy")
-        .forEach(copy => copy.remove());
+  const appDropdown = document.getElementById("appDropdown");
 
-      const rect = card.getBoundingClientRect();
-
-      hoverCopy = card.cloneNode(true);
-      hoverCopy.classList.add("card-hover-copy");
-
-      hoverCopy.style.left = rect.left + "px";
-      hoverCopy.style.top = rect.top + "px";
-      hoverCopy.style.width = rect.width + "px";
-      hoverCopy.style.height = rect.height + "px";
-
-      
-document.body.appendChild(hoverCopy);
-
-// Let the browser render the card at its original size first
-hoverCopy.style.setProperty("transform", "scale(1)", "important");
-hoverCopy.style.setProperty(
-  "box-shadow",
-  "0 10px 25px rgba(0,0,0,0.4)",
-  "important"
-);
-
-requestAnimationFrame(() => {
-  requestAnimationFrame(() => {
-    if (hoverCopy) {
-      hoverCopy.style.setProperty(
-        "transform",
-        "scale(1.25)",
-        "important"
-      );
-
-      hoverCopy.style.setProperty(
-        "box-shadow",
-        "0 30px 65px rgba(0,0,0,0.7)",
-        "important"
-      );
-    }
-  });
-});
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-      if (hoverCopy) {
-        hoverCopy.remove();
-        hoverCopy = null;
+  if (appDropdown) {
+    appDropdown.addEventListener("change", function () {
+      if (this.value) {
+        window.location.href = this.value;
       }
     });
+  }
+
+
+  // ==========================================
+  // 2. EDUCATIONAL TOOL DESCRIPTIONS
+  // ==========================================
+
+  const descriptions = {
+    "Mentimeter":
+      "Create real-time polls, quizzes, and word clouds with instant results. Students can submit questions, react with emojis, and participate using a code, link, or QR code. Teachers can visualize responses through graphs, charts, and insights.",
+
+    "Wooclap":
+      "Make lessons interactive with matching activities, fill-in-the-blanks, image labeling, brainstorming, and collaborative message walls. Wooclap also offers competition leaderboards, an 'I am confused' button, attendance tracking, and LMS integration.",
+
+    "Slido":
+      "Engage students through live Q&A sessions, polls, surveys, and quizzes. Participants can upvote questions and join discussions. Slido also integrates with PowerPoint, Zoom, Google Slides, and Microsoft Teams.",
+
+    "Genially":
+      "Create interactive presentations, infographics, and educational games using animations, clickable elements, escape rooms, quizzes, and storytelling. Explore ready-made templates and share or embed interactive content online.",
+
+    "Blooket":
+      "Turn classroom reviews into game-based learning experiences with battle, racing, and strategy modes. Use pre-made question sets or create your own, motivate students with points and competition, and assign homework or host live classroom games."
+  };
+
+
+ 
+  // ==========================================
+  // 3. USE THE EXISTING MOBILE TOOLS SECTION
+  // ==========================================
+
+  // Your HTML already contains #mobile-tools.
+  // Do not create another section with JavaScript.
+  const mobileSection = document.getElementById("mobile-tools");
+
+  // Keep the existing HTML descriptions unchanged.
+  // The mobile section will be displayed by your CSS.
+
+
+
+  // ==========================================
+  // 4. CREATE THE DESKTOP DESCRIPTION POPUP
+  // ==========================================
+
+  const popup = document.createElement("div");
+
+  popup.className = "tool-description-popup";
+  popup.setAttribute("role", "tooltip");
+
+  document.body.appendChild(popup);
+
+
+  // ==========================================
+  // 5. TRACK THE ACTIVE CARD AND CLONE
+  // ==========================================
+
+  let activeCard = null;
+  let activeClone = null;
+  let activePointerId = 0;
+
+  const finePointer = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+  );
+
+  let hoverEnabled = finePointer.matches;
+
+
+  // ==========================================
+  // 6. CLEAN UP HOVER EFFECTS
+  // ==========================================
+
+  function hidePopup() {
+
+    popup.classList.remove("visible");
+
+    // Remove the active clone.
+    if (activeClone) {
+      activeClone.remove();
+    }
+
+    // Remove any leftover clones.
+    document.querySelectorAll(".card-hover-copy")
+      .forEach(function (copy) {
+        copy.remove();
+      });
+
+    activeClone = null;
+    activeCard = null;
+    activePointerId++;
+  }
+
+
+  // ==========================================
+  // 7. POSITION THE DESCRIPTION POPUP
+  // ==========================================
+
+  function positionPopup(card) {
+
+    if (
+      !hoverEnabled ||
+      !card ||
+      !card.isConnected ||
+      activeCard !== card
+    ) {
+      return;
+    }
+
+    const rect = card.getBoundingClientRect();
+    const gap = 12;
+    const margin = 12;
+
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    // Measure the popup before positioning it.
+    popup.style.left = "0px";
+    popup.style.top = "0px";
+    popup.classList.add("visible");
+
+    const tip = popup.getBoundingClientRect();
+
+    const space = {
+      right: vw - rect.right - gap - margin,
+      left: rect.left - gap - margin,
+      bottom: vh - rect.bottom - gap - margin,
+      top: rect.top - gap - margin
+    };
+
+    const order = ["right", "left", "bottom", "top"];
+
+    const fits = order.filter(function (side) {
+
+      const needed =
+        side === "right" || side === "left"
+          ? tip.width
+          : tip.height;
+
+      return space[side] >= needed;
+    });
+
+    const side = fits.length
+      ? fits[0]
+      : order.reduce(function (best, current) {
+          return space[current] > space[best]
+            ? current
+            : best;
+        });
+
+    let x;
+    let y;
+
+    if (side === "right") {
+      x = rect.right + gap;
+      y = rect.top + (rect.height - tip.height) / 2;
+
+    } else if (side === "left") {
+      x = rect.left - tip.width - gap;
+      y = rect.top + (rect.height - tip.height) / 2;
+
+    } else if (side === "bottom") {
+      x = rect.left + (rect.width - tip.width) / 2;
+      y = rect.bottom + gap;
+
+    } else {
+      x = rect.left + (rect.width - tip.width) / 2;
+      y = rect.top - tip.height - gap;
+    }
+
+    x = Math.max(
+      margin,
+      Math.min(x, vw - tip.width - margin)
+    );
+
+    y = Math.max(
+      margin,
+      Math.min(y, vh - tip.height - margin)
+    );
+
+    popup.style.left = x + "px";
+    popup.style.top = y + "px";
+  }
+
+
+  // ==========================================
+  // 8. START THE DESKTOP HOVER ANIMATION
+  // ==========================================
+
+  function showCard(card) {
+
+    if (!hoverEnabled) return;
+
+    const title = card.querySelector(".card-info h4");
+
+    if (!title) return;
+
+    const name = title.textContent.trim();
+
+    if (!descriptions[name]) return;
+
+    // Clear the previous hover before creating another.
+    hidePopup();
+
+    const thisPointerId = activePointerId;
+
+    activeCard = card;
+
+    const rect = card.getBoundingClientRect();
+
+    const hoverCopy = card.cloneNode(true);
+
+    hoverCopy.classList.add("card-hover-copy");
+
+    hoverCopy.style.left = rect.left + "px";
+    hoverCopy.style.top = rect.top + "px";
+    hoverCopy.style.width = rect.width + "px";
+    hoverCopy.style.height = rect.height + "px";
+
+    // Prevent the clone from intercepting mouse events.
+    hoverCopy.style.pointerEvents = "none";
+
+    hoverCopy.style.setProperty(
+      "transform",
+      "scale(1)",
+      "important"
+    );
+
+    hoverCopy.style.setProperty(
+      "box-shadow",
+      "0 10px 25px rgba(0,0,0,0.4)",
+      "important"
+    );
+
+    document.body.appendChild(hoverCopy);
+
+    activeClone = hoverCopy;
+
+    requestAnimationFrame(function () {
+
+      requestAnimationFrame(function () {
+
+        // Never animate a clone that is no longer active.
+        if (
+          !hoverEnabled ||
+          activeClone !== hoverCopy ||
+          activeCard !== card ||
+          activePointerId !== thisPointerId ||
+          !card.matches(":hover")
+        ) {
+          if (activeClone === hoverCopy) {
+            hidePopup();
+          }
+
+          return;
+        }
+
+        hoverCopy.style.setProperty(
+          "transform",
+          "scale(1.25)",
+          "important"
+        );
+
+        hoverCopy.style.setProperty(
+          "box-shadow",
+          "0 30px 65px rgba(0,0,0,0.7)",
+          "important"
+        );
+      });
+
+    });
+
+    popup.textContent = descriptions[name];
+
+    positionPopup(card);
+  }
+
+
+  // ==========================================
+  // 9. SET UP EACH CAROUSEL CARD
+  // ==========================================
+
+  document.querySelectorAll(".cards .card").forEach(
+    function (card) {
+
+      card.addEventListener("mouseenter", function () {
+
+        if (!hoverEnabled) return;
+
+        showCard(card);
+      });
+
+      card.addEventListener("mouseleave", function () {
+
+        if (activeCard === card) {
+          hidePopup();
+        }
+      });
+
+    }
+  );
+
+
+  // ==========================================
+  // 10. PAUSE CAROUSEL WHILE HOVERING
+  // ==========================================
+
+  const cardsContainer = document.querySelector(".cards");
+
+  if (cardsContainer) {
+
+    cardsContainer.addEventListener("mouseenter", function () {
+      if (hoverEnabled) {
+        hidePopup();
+        cardsContainer.classList.add("is-hovering");
+      }
+    });
+
+    cardsContainer.addEventListener("mouseleave", function () {
+      cardsContainer.classList.remove("is-hovering");
+      hidePopup();
+    });
+  }
+
+
+  // ==========================================
+  // 11. ENABLE OR DISABLE HOVER BY DEVICE
+  // ==========================================
+
+  function updateHoverMode() {
+
+    hoverEnabled = finePointer.matches;
+
+    if (!hoverEnabled) {
+      hidePopup();
+
+      if (cardsContainer) {
+        cardsContainer.classList.remove("is-hovering");
+      }
+    }
+  }
+
+  if (finePointer.addEventListener) {
+    finePointer.addEventListener("change", updateHoverMode);
+  } else {
+    finePointer.addListener(updateHoverMode);
+  }
+
+
+  // ==========================================
+  // 12. CLEANUP WHEN THE WINDOW LOSES FOCUS
+  // ==========================================
+
+  window.addEventListener("blur", hidePopup);
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      hidePopup();
+    }
   });
+
+
+  // ==========================================
+  // 13. HANDLE RESIZING AND SCROLLING
+  // ==========================================
+
+  window.addEventListener("resize", function () {
+
+    if (activeCard && activeCard.isConnected && hoverEnabled) {
+      positionPopup(activeCard);
+    } else {
+      hidePopup();
+    }
+  });
+
+  window.addEventListener("scroll", function () {
+
+    if (activeCard && activeCard.isConnected && hoverEnabled) {
+      positionPopup(activeCard);
+    } else if (activeCard) {
+      hidePopup();
+    }
+
+  }, true);
+
+
+  // ==========================================
+  // 14. SAFETY CHECK FOR STUCK HOVER STATES
+  // ==========================================
+
+  document.addEventListener("mousemove", function () {
+
+    if (
+      activeCard &&
+      (!activeCard.isConnected || !activeCard.matches(":hover"))
+    ) {
+      hidePopup();
+    }
+
+  });
+
+});
 </script>
+
+
+
 </body>
 </html>
